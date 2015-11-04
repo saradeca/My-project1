@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Javascript proptotype : Consente di aggiungere proprietà e metodi ad un oggetto</title>
+		<script type="text/javascript">
+			<!--
+				var Persona = function() {
+				  this.saParlare = true;
+				};
+
+				Persona.prototype.saluta = function() {
+				  if (this.saParlare) {
+					document.getElementById("rigo1").innerHTML ='Ciao, mi chiamo ' + this.nome;
+				  }
+  				  else{
+					document.getElementById("rigo1").innerHTML = 'saParlare = false';
+				  }
+				};
+
+				var Dipendente = function(nome, titolo) {
+				  Persona.call(this);
+				  this.nome = nome;
+				  this.titolo = titolo;
+				};
+
+				Dipendente.prototype = Object.create(Persona.prototype);
+				Dipendente.prototype.constructor = Dipendente;
+
+				Dipendente.prototype.saluta = function() {
+				  if (this.saParlare) {
+					document.getElementById("rigo1").innerHTML = 'Ciao mi chiamo ' + this.nome + ' e lavoro come ' + this.titolo;
+				  }
+				};
+
+				var Cliente = function(nome) {
+				  Persona.call(this);
+				  this.nome = nome;
+				};
+
+				Cliente.prototype = Object.create(Persona.prototype);
+				Cliente.prototype.constructor = Cliente;
+
+				var Mimo = function(nome) {
+				  Persona.call(this);
+				  this.nome = nome;
+				  this.saParlare = false;
+				};
+
+				Mimo.prototype = Object.create(Persona.prototype);
+				Mimo.prototype.constructor = Mimo;
+				
+				var ferdinando = new Dipendente('Ferdinando', 'Architetto');
+				var jerry = new Cliente('Jerry');
+				var pietro = new Dipendente('Pietro', 'Tuttofare');
+				var rossana = new Cliente('Rossana');
+				var vanni = new Mimo('Vanni');
+	
+			
+		-->
+		</script>
+	</head>
+	<body>
+		<noscript>Sembra che il tuo browser non supporti JavaScript!</noscript>
+		<p id="rigo1"></p>
+        <button type="button" onclick= ferdinando.saluta()>Ferdinando</button><br>
+		<button type="button" onclick= jerry.saluta()>Jerry</button><br>
+		<button type="button" onclick= pietro.saluta()>Pietro</button><br>
+		<button type="button" onclick= rossana.saluta()>Rossana</button><br>
+		<button type="button" onclick= vanni.saluta()>Vanni</button><br>
+	</body>
+</html>
+				
