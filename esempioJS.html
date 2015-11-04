@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Javascript proptotype : Consente di aggiungere proprietà e metodi ad un oggetto</title>
+		<script type="text/javascript">
+			<!--
+			function Person(first, last) {
+				this.first = first;
+				this.last = last;
+			}
+			Person.prototype.fullName = function() {
+				return this.first + ' ' + this.last;
+			}
+			Person.prototype.fullNameReversed = function() {
+				return this.last + ', ' + this.first;
+			}
+
+			function ScriviNome() {
+				var s = new Person('Sara', 'de Candia');
+			document.getElementById("stringhe").innerHTML = s.first();
+			}
+	
+		-->
+		</script>
+	</head>
+	<body>
+		<noscript>Sembra che il tuo browser non supporti JavaScript!</noscript>
+        <p id="stringhe"></p>
+        <button type="button" onclick= ScriviNome()>Uso di proptotype JS</button>
+	</body>
+</html>
