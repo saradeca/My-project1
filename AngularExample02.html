@@ -1,0 +1,64 @@
+ <!doctype html>
+<html>
+<title>Angular Example</title>
+<header>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script type="text/javascript"> 
+ angular.module('MainModule',[])
+.controller('taskCtrl', function($scope) {
+    
+    // Task List
+  $scope.taskList = [
+      {descrizione:'Learn AngularJS modules', priorita:4, index: 1}
+  ];
+     // Task
+    $scope.task = {};
+    
+    // Add Tsk
+    $scope.AggiungiAttivita = function() {
+    $scope.taskList.push({
+        index:$scope.taskList.length + 1, 
+        descrizione: $scope.task.descrizione,
+        priorita: $scope.task.priorita})};
+    
+    // Cancella Task
+    $scope.deleteTask = function(index){
+        $scope.taskList.splice(index, 1);
+    }
+});
+
+</script> 
+
+
+</header>
+
+ <body ng-app="MainModule">
+    <h2>Elenco attività</h2>
+     <hr/>
+    <div ng-controller="taskCtrl">
+        <table>
+        <thead>
+        <th align="left">Descrizione</th>
+        <th align="center">Priorita</th>
+        <th align="right">Elimina</th>
+        </thead>
+      <tbody>
+          <tr ng-repeat="task in taskList | orderBy: 'descrizione' | orderBy: 'priorita' : true ">
+            <td align="left">{{task.descrizione}}</td>
+            <td align="center">{{task.priorita}}</td>
+            <td align="right">
+              <a href ng-click="deleteTask($index)">X</a>
+            </td>
+          </tr>
+       </tbody>
+    </table>
+        <hr/>
+          <h3>Inserisci nuova attività</h3>
+      <form ng-submit="AggiungiAttivita()">
+				Descrizione <input type="text" required ng-model="task.descrizione"  size="45"><br/>
+				Priorita <input type="number" min="1" max="5" required ng-model="task.priorita" required><br/>
+				<br><br/>
+        <input class="btn-primary" type="submit" value="Aggiungi attività">
+      </form>
+    </div>
+  </body>
