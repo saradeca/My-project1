@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<title>Deferred Example</title>
+<header>
+ <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+</header>
+
+ 
+<body>
+ <div id="output"></div>
+ <button onClick='scatena()'>ora</button>
+ <button onClick='annulla()'>boom</button>
+ <script>
+  
+  var def = $.Deferred();
+  
+  var promise = def.promise();
+  
+  promise.then(function(){
+     $("#output").append("Messaggio2<br>");
+  })
+  
+  
+ 
+  function scatena(){
+    def.resolve();
+  }
+  
+  function annulla(){
+    def.reject('NO');
+  }
+</script>
+
+ </body>
