@@ -3,23 +3,20 @@
 <title>Deferred Example</title>
 <header>
  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-
 </header>
 
  <body>
- <div id="output"></div>
+	<div id="output"></div>
+	<script>
+	  
+	 var promise = $.Deferred(function (d) {
+		$("#output").append("Messaggio1<br>");
+		d.resolve();
+	});
 
- 
- <script>
-  
- var promise = $.Deferred(function (d) {
-    $("#output").append("Messaggio1<br>");
-    d.resolve();
-});
+	promise.then(function () {
+		$("#output").append("Messaggio2<br>");
+	});
+	</script>
 
-promise.then(function () {
-    $("#output").append("Messaggio2<br>");
-});
-</script>
-
- </body>
+</body>

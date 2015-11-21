@@ -3,14 +3,12 @@
 <title>Deferred Example</title>
 <header>
  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-
 </header>
-
  
 <body>
- <div id="output"></div>
- <button onClick='scatena()'>ora</button>
- <button onClick='annulla()'>boom</button>
+	<div id="output"></div>
+	<button onClick='scatena()'>ora</button>
+	<button onClick='annulla()'>boom</button>
  <script>
   
   var def = $.Deferred();
@@ -22,7 +20,6 @@
   })
   
   
- 
   function scatena(){
     def.resolve();
   }
@@ -31,5 +28,4 @@
     def.reject('NO');
   }
 </script>
-
- </body>
+</body>
